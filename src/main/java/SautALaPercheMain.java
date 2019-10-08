@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.*;
 
-public class SautALaPerche {
+public class SautALaPercheMain {
     public static void main(String[] argv) throws Exception {
         FileInputStream is = new FileInputStream(new File("saut-a-la-perche/input8.txt"));
         System.setIn(is);
