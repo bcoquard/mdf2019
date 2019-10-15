@@ -6,7 +6,7 @@ public class PetriMain {
 
 
     public static void main(String[] argv) throws Exception {
-        FileInputStream is = new FileInputStream(new File("petri/input6.txt"));
+        FileInputStream is = new FileInputStream(new File("petri/input5.txt"));
         System.setIn(is);
 
         String line;
