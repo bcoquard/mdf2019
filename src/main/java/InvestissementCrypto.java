@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class InvestissementCrypto {
 
     public static void main(String[] argv) throws Exception {
-        FileInputStream is = new FileInputStream(new File("investissement-crypto/input4.txt"));
+        FileInputStream is = new FileInputStream(new File("investissement-crypto/input2.txt"));
         System.setIn(is);
 
         String line;
@@ -32,9 +32,11 @@ public class InvestissementCrypto {
         Integer bitcoinVar = bitcoin.calculateVariation();
         Integer eterVar = etercoin.calculateVariation();
 
+        System.err.println(bitcoinVar + " " + eterVar);
+
         if (bitcoinVar == eterVar) {
             System.out.println("KO");
-        } else if (bitcoinVar > eterVar) {
+        } else if (bitcoinVar < eterVar) {
             System.out.println("BITCOIN");
         } else {
             System.out.println("ETHEREUM");
@@ -59,6 +61,7 @@ public class InvestissementCrypto {
                     currentVar = iter;
                 } else {
                     Integer newVar = iter - currentVar;
+
                     if (newVar == 0) {
                         currentDirection = "NULL";
                     } else if (newVar > 0) {
@@ -67,7 +70,7 @@ public class InvestissementCrypto {
                         currentDirection = "DOWN";
                     }
 
-                    if (lastDirection != null && !lastDirection.equals(currentDirection)) {
+                    if (lastDirection == null || (!"NULL".equals(currentDirection) && !lastDirection.equals(currentDirection))) {
                         variations.add(newVar);
                     }
 
